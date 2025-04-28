@@ -29,35 +29,44 @@ function playGame() {
         let finalString = firstChar + remainChar;
         // evaluate the winner
         if (finalString === 'Rock' && computerChoice === 'Rock') {
-            console.log("It's a tie! You both chose Rock.");
-            humanScore++;
-            computerScore++;
+            document.querySelector('div').innerText = "It's a tie! You both chose Rock.";
+            document.querySelector('.scores').innerText = `Your score is ${humanScore}, computer score is ${computerScore}`; 
         } else if (finalString === 'Rock' && computerChoice === 'Paper') {
-            console.log('You lose! Paper beats Rock.');
+            document.querySelector('div').innerText = 'You lose! Paper beats Rock.';
             computerScore++;
+            document.querySelector('.scores').innerText = `Your score is ${humanScore}, computer score is ${computerScore}`;
         } else if (finalString === 'Rock' && computerChoice === 'Scissors') {
-            console.log('You win! Rock beats Scissors.');
+            document.querySelector('div').innerText = 'You win! Rock beats Scissors.';
             humanScore++;
+            document.querySelector('.scores').innerText = `Your score is ${humanScore}, computer score is ${computerScore}`;
         } else if (finalString === 'Paper' && computerChoice === 'Paper') {
-            console.log("It's a tie! You both chose Paper.");
-            humanScore++;
-            computerScore++;
+            document.querySelector('div').innerText = "It's a tie! You both chose Paper.";
+            document.querySelector('.scores').innerText = `Your score is ${humanScore}, computer score is ${computerScore}`;
         } else if (finalString === 'Paper' && computerChoice === 'Rock') {
-            console.log('You win! Paper beats Rock');
+            document.querySelector('div').innerText = 'You win! Paper beats Rock';
             humanScore++;
+            document.querySelector('.scores').innerText = `Your score is ${humanScore}, computer score is ${computerScore}`;
         } else if (finalString === 'Paper' && computerChoice === 'Scissors') {
-            console.log('You lose! Scissors beats Paper.');
+            document.querySelector('div').innerText = 'You lose! Scissors beats Paper.';
             computerScore++;
+            document.querySelector('.scores').innerText = `Your score is ${humanScore}, computer score is ${computerScore}`;
         } else if (finalString === 'Scissors' && computerChoice === 'Scissors') {
-            console.log("It's a tie! You both chose Scissors.");
-            humanScore++;
-            computerScore++;
+            document.querySelector('div').innerText = "It's a tie! You both chose Scissors.";
+            document.querySelector('.scores').innerText = `Your score is ${humanScore}, computer score is ${computerScore}`;
         } else if (finalString === 'Scissors' && computerChoice === 'Rock') {
-            console.log('You lose! Rock beats Scissors');
+            document.querySelector('div').innerText = 'You lose! Rock beats Scissors';
             computerScore++;
+            document.querySelector('.scores').innerText = `Your score is ${humanScore}, computer score is ${computerScore}`;
         } else if (finalString === 'Scissors' && computerChoice === 'Paper') {
-            console.log('You win! Scissors beats Paper.')
+            document.querySelector('div').innerText = 'You win! Scissors beats Paper';
             humanScore++;
+            document.querySelector('.scores').innerText = `Your score is ${humanScore}, computer score is ${computerScore}`;
+        }
+
+        if (humanScore == 5) {
+            document.querySelector('.winner').innerText = 'You win!.';
+        } else if (computerScore == 5) {
+            document.querySelector('.winner').innerText = 'Computer wins!.';
         }
     }
 
