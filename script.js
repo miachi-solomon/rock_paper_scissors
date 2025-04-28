@@ -13,22 +13,15 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt('Rock, Paper or Scissors').toLowerCase();
-    return humanChoice;
-}
+// function getHumanChoice() {
+//     let humanChoice = prompt('Rock, Paper or Scissors').toLowerCase();
+//     return humanChoice;
+// }
 
 function playGame() {
     let humanScore = 0;
-
     let computerScore = 0;
 
-    for (i=1; i <= 5; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
-    
     function playRound(humanChoice, computerChoice) {
         //capitalize first letter of user input
         let firstChar = humanChoice.slice(0, 1).toUpperCase();
@@ -67,6 +60,17 @@ function playGame() {
             humanScore++;
         }
     }
+
+
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', function(e){
+            humanChoice = e.target.innerHTML;
+            computerChoice = getComputerChoice();
+            playRound(humanChoice, computerChoice);
+        })
+    });
 }
 
 playGame();
